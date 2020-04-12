@@ -1,6 +1,10 @@
 package com.NerualNetwork;
 
-
+/**
+ * Malformatted Data Exception:
+ *  Is thrown when the data being fed to the network does not match
+ *  the size of the layer to which it is being fed.
+ */
 class MalformattedDataException extends RuntimeException{
 
     public MalformattedDataException(String message){
@@ -8,6 +12,11 @@ class MalformattedDataException extends RuntimeException{
     }
 
 }
+
+/**
+ * Unfilled Trian Data Exception:
+ *  Is thrown when the training data given to the network has NullPointers in it.
+ */
 class UnfilledTrainDataException extends RuntimeException{
     UnfilledTrainDataException(String msg){
         super(msg);
@@ -16,15 +25,44 @@ class UnfilledTrainDataException extends RuntimeException{
 }
 
 
-
-
+/**
+ * Neural Network class:
+ *  Holds the layers, and takes all high level actions
+ *
+ */
 class NeuralNetwork {
+    /**
+     * LEARNING_RATE:
+     *  Affects the rate at which weights are adjusted
+     *  (Must be between 0.0 and 1.0)
+     */
     public double LEARNING_RATE = 1;
 
+    /**
+     * The Input layer is where all the incoming data is accepted.
+     * The nodes of the input layer have no weights, no error, and no parents
+     */
     private Node[] inputLayer;
+    /**
+     * The output layer is where the data is outputed in its final form
+     * Its parents are the last middle layer
+     */
     private Node[] outputLayer;
+    /**
+     * The middle layers contain all extra layers between the input and output layers.
+     * WARNING: Can be jagged depending on the user's input
+     */
     private Node[][] middleLayers;
 
+    /**
+     * Constructor:
+     * @param inputSize the size of the input layer in nodes
+     * @param outputSize the size of the output layer in nodes
+     * @param middleLayerConfig an array of integers containing the lengths of the middle layers.
+     *                          The length of the array determines the number of middle layers,
+     *                          Each integer represents the length of one middle layer.
+     *                          The order goes from input-side to output.
+     */
     NeuralNetwork(int inputSize, int outputSize, int[] middleLayerConfig){
 
         inputLayer = new Node[inputSize];
@@ -51,6 +89,11 @@ class NeuralNetwork {
 
     }
 
+    /**
+     * feedData(formattedData):
+     * @param formattedData an array of doubles to be given to the input layer
+     * @exception  MalformattedDataException when the data in the NeuralNetworkTrainData is malformatted.
+     */
     void feedData(double[] formattedData){
 
         if(formattedData.length!=inputLayer.length){
@@ -62,6 +105,13 @@ class NeuralNetwork {
 
     }
 
+
+    /**
+     * getUnformattedOutput()
+     * @return the double type values of the output layer.
+     *          Will return whatever exists in the output layer at the time of calling
+     *          Will have the same length as the output layer
+     */
     double[] getUnformattedOutput(){
         double[] outpt = new double[outputLayer.length];
         int i = 0;
@@ -73,6 +123,10 @@ class NeuralNetwork {
         return outpt;
     }
 
+    /**
+     * runLoadedData()
+     *  Will feed any data that exists in the input layer through the network
+     */
     void runLoadedData(){
 
         for(int i = 0 ; i < middleLayers.length;i++){
@@ -87,6 +141,12 @@ class NeuralNetwork {
 
     }
 
+    /**
+     * feedCorrect()
+     * @param formattedData an array of doubles with the same length as the output layer.
+     *                      Will be fed into the output layer in order to determine errors.
+     * @exception  MalformattedDataException when the data in the NeuralNetworkTrainData is malformatted.
+     */
     void feedCorrect(double[] formattedData){
 
         if(formattedData.length < outputLayer.length){
@@ -101,6 +161,12 @@ class NeuralNetwork {
 
     }
 
+    /**
+     * findErrors()
+     * Goes through all layers and calculates errors.
+     * Will not apply any errors
+     *
+     */
     void findErrors(){
 
         for(int i = middleLayers.length-1 ; i > -1;i--){
@@ -114,6 +180,10 @@ class NeuralNetwork {
 
     }
 
+    /**
+     * ApplyErrors()
+     * Goes through all layers and applies their errors.
+     */
     void applyErrors(){
 
         for(int i = middleLayers.length-1 ; i > -1;i--){
@@ -126,6 +196,13 @@ class NeuralNetwork {
         }
     }
 
+    /**
+     * predict()
+     * @param formattedData double array with the same length as the input layer.
+     *                      The data for the NeuralNetwork to predict based off of.
+     * @return double array with the same length as the output layer.
+     *          Represents the prediction of the network for a given input.
+     */
     double[] predict(double[] formattedData){
 
         feedCorrect(formattedData);
@@ -134,6 +211,17 @@ class NeuralNetwork {
 
     }
 
+    /**
+     * train()
+     * @param data A NeuralNetworkTrainData object to train with.
+     *             Will use all data given within the object.
+     * @exception  UnfilledTrainDataException when the NeuralNetworkTrainData object has not been filled.
+     * @exception  MalformattedDataException when the data in the NeuralNetworkTrainData is malformatted.
+     *
+     * @see NeuralNetworkTrainData
+     * @see MalformattedDataException
+     * @see UnfilledTrainDataException
+     */
     void train(NeuralNetworkTrainData data){
         double[] feeder;
         double[] correct;
