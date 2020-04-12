@@ -63,6 +63,11 @@ public class Node {
     private NeuralNetwork parent;
 
     /**
+     * Boolean to discriminate between Neurons of hidden and non-hidden layers (middle layers)
+     */
+    boolean isHidden = false;
+
+    /**
      * Constructor 1:
      * @param p The parent network
      *
@@ -73,6 +78,7 @@ public class Node {
         parents = new Node[0];
         weights = new double[0];
         //biases = new double[0];
+
 
     }
 
@@ -94,8 +100,8 @@ public class Node {
      * Used for debugging only
      */
     void print(){
-        System.out.println("Node   -  "+this+"  - :");
-        System.out.println("Weights: "+weights.toString());
+        System.out.println("Node   -  "+this.value+"  - :");
+        //System.out.println("Weights: "+weights.toString());
         //System.out.println("Biases: "+biases.toString());
 
     }
@@ -106,7 +112,7 @@ public class Node {
      * @return sigmoid(t)
      */
     double sig(double t){
-        return (1/( 1 + Math.pow(E,(-1*t))));
+        return (1.0/( 1.0 + Math.pow(E,(-1.0*t))));
     }
 
     /**
@@ -131,6 +137,7 @@ public class Node {
         parents = p;
         weights = getInitialArrayFor(p.length);
         //biases = getInitialArrayFor(p.length);
+        isHidden = true;
     }
 
     /**
@@ -178,7 +185,11 @@ public class Node {
         }
         value+=bias;
         preTransferValue = value;
-        value = sig(value);
+
+        if(!isHidden) {
+            value = sig(value);
+        }
+
         return true;
     }
 
@@ -187,9 +198,7 @@ public class Node {
      * @param correct the intended result of a given activation
      */
     void setErrorAsOutput(double correct){
-
         error = (correct - value) * sigDiv(value);
-
     }
 
     /**
@@ -200,7 +209,7 @@ public class Node {
         error = 0.0;
         for(int i = 0 ;i < parents.length;i++){
 
-            error+= (parents[i].error * weights[i]) * sigDiv(value);
+            error+= (parents[i].error * weights[i]) * (value);
 
         }
 
@@ -211,10 +220,11 @@ public class Node {
      * Applies error to weights
      */
     void applyError(){
-
+        //print();
         for(int i = 0 ;i < weights.length;i++) {
-
-            weights[i] += parent.LEARNING_RATE * parents[i].error * parents[i].value;
+            //System.out.println("PRE: WEIGHT: "+weights[i]);
+            weights[i] += parent.LEARNING_RATE * parents[i].error * parents[i].value * value * (1-value);
+            //System.out.println("POST: WEIGHT: "+weights[i]);
 
         }
 

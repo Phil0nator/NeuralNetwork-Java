@@ -39,7 +39,7 @@ class NeuralNetwork {
      *  Affects the rate at which weights are adjusted
      *  (Must be between 0.0 and 1.0)
      */
-    public double LEARNING_RATE = 1;
+    public double LEARNING_RATE = .0001;
 
     /**
      * The Input layer is where all the incoming data is accepted.
@@ -88,6 +88,7 @@ class NeuralNetwork {
         }
         for(int i = 0 ; i < outputLayer.length;i++) {
             outputLayer[i] = new Node(middleLayers[middleLayers.length - 1], this);
+            outputLayer[i].isHidden = false;
         }
 
     }
@@ -103,7 +104,7 @@ class NeuralNetwork {
             throw new MalformattedDataException("The length of the input data and that of the input layer do not match");
         }
         for(int i = 0 ; i < formattedData.length;i++){
-            inputLayer[i].setValue(formattedData[i]);
+            inputLayer[i].setValue(new Node(this).sig(formattedData[i]));
         }
 
     }
@@ -119,7 +120,7 @@ class NeuralNetwork {
         double[] outpt = new double[outputLayer.length];
         int i = 0;
         for(Node n: outputLayer){
-            outpt[i] = n.getValue();
+            outpt[i] = n.sigDiv(n.getValue());
             i++;
         }
 
@@ -275,7 +276,6 @@ class NeuralNetwork {
         for(Node[] ns : middleLayers){
             out += ","+ns.length;
         }
-        System.out.println(out);
         return out;
 
     }
@@ -312,7 +312,7 @@ class NeuralNetwork {
      */
     NeuralNetwork(File f){
 
-        
+
 
     }
 

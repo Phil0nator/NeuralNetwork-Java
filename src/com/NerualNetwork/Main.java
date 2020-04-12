@@ -12,23 +12,30 @@ public class Main {
     }
 
     public static void main(String[] args) {
-	// write your code here
 
-        int[] config = {5,4,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,2};
-        NeuralNetwork ntest = new NeuralNetwork(10,1,config);
-        double[] testData = {0.0,1.1,2.2,3.3,4.4,5.5,6.6,7.7,8.8,9.9};
-        double[] testCorrect = {5.5};
+        int[] config = {2};
+        NeuralNetwork test = new NeuralNetwork(3,1,config);
+        double[] t1 = {0,0,1};
+        double[] t2 = {1,1,1};
+        double[] t3 = {1,0,1};
+        double[] t4 = {0,1,1};
+        double[] c1 = {0};
+        double[] c2 = {1};
+        double[] c3 = {1};
+        double[] c4 = {0};
 
-        NeuralNetworkTrainData testtrain = new NeuralNetworkTrainData(100);
-        for( int i = 0 ; i < 100; i ++){
-            testtrain.push(testData,testCorrect);
+        double[] testData = {0,1,1};
+        NeuralNetworkTrainData data = new NeuralNetworkTrainData(4);
+        data.push(t1,c1);
+        data.push(t2,c2);
+        data.push(t3,c3);
+        data.push(t4,c4);
+        for(int i = 0 ; i < 10000;i++){
+            test.train(data);
         }
-        for( int i = 0 ; i < 10000; i ++){
-            ntest.train(testtrain);
-        }
+        printArray(test.predict(testData));
 
-        printArray(ntest.predict(testData));
-        ntest.saveTo("MyNetwork.nns");
     }
+
 }
 
