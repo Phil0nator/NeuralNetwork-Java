@@ -8,8 +8,8 @@ import static java.lang.Math.exp;
 public class Node {
     static private final Random r = new Random();
     static private final double E = Math.E;
-
-
+    static private final double MAX_WEIGHT_DIFF = 1.0;
+    static private final double WEIGHT_SIG_FIG = 10000;
 
 
 
@@ -32,7 +32,7 @@ public class Node {
     double[] getInitialArrayFor(int len){
         double[] out = new double[len];
         for(int i = 0 ; i < len;i++){
-            out[i] = ((double)r.nextInt(8000)/1000)-4.0;
+            out[i] = ((double)r.nextInt((int)MAX_WEIGHT_DIFF*(int)WEIGHT_SIG_FIG)/WEIGHT_SIG_FIG)-(MAX_WEIGHT_DIFF/2.0);
         }
         return out;
     }

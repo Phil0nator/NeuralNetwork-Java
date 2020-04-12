@@ -29,7 +29,7 @@ public class NeuralNetworkTrainData {
         inpCounter++;
         correctCounter++;
 
-        if(inpCounter > input.length||correctCounter>correct.length){
+        if(inpCounter>input.length||correctCounter>correct.length){
             throw new TooMuchDataException("You've tried to add more data than you've allocated");
         }
 

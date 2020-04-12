@@ -23,9 +23,12 @@ public class Main {
         for( int i = 0 ; i < 100; i ++){
             testtrain.push(testData,testCorrect);
         }
+        for( int i = 0 ; i < 10000; i ++){
+            ntest.train(testtrain);
+        }
 
-        ntest.train(testtrain);
         printArray(ntest.predict(testData));
 
     }
 }
+

@@ -25,8 +25,6 @@ class NeuralNetwork {
     private Node[] outputLayer;
     private Node[][] middleLayers;
 
-
-
     NeuralNetwork(int inputSize, int outputSize, int[] middleLayerConfig){
 
         inputLayer = new Node[inputSize];
@@ -91,9 +89,8 @@ class NeuralNetwork {
 
     void feedCorrect(double[] formattedData){
 
-        if(formattedData.length != outputLayer.length){
-            throw new MalformattedDataException("The length of the input data and that of the input layer do not match");
-
+        if(formattedData.length < outputLayer.length){
+            throw new MalformattedDataException("The length of the correct data and that of the output layer do not match");
         }
         int i = 0;
         for(Node n : outputLayer){
@@ -141,6 +138,7 @@ class NeuralNetwork {
         double[] feeder;
         double[] correct;
         for(int i = 0 ; i < data.input.length; i++){
+
             try{
 
                 feeder = data.input[i];
@@ -148,6 +146,7 @@ class NeuralNetwork {
 
             }catch (Exception e){
                 throw new UnfilledTrainDataException("You have not filled the data you allocated in your training data");
+
             }
             feedData(feeder);
             runLoadedData();
@@ -155,6 +154,12 @@ class NeuralNetwork {
             findErrors();
             applyErrors();
         }
+    }
+
+    void saveTo(String path){
+
+        
+
     }
 
 }
