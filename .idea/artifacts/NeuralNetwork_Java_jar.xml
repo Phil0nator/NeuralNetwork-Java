@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="NeuralNetwork-Java:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/NeuralNetwork_Java_jar</output-path>
+    <root id="archive" name="NeuralNetwork-Java.jar">
+      <element id="module-output" name="NeuralNetwork-Java" />
+    </root>
+  </artifact>
+</component>
