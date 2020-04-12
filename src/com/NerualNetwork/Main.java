@@ -14,7 +14,7 @@ public class Main {
     public static void main(String[] args) {
 	// write your code here
 
-        int[] config = {5,4,3,2};
+        int[] config = {5,4,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,2};
         NeuralNetwork ntest = new NeuralNetwork(10,1,config);
         double[] testData = {0.0,1.1,2.2,3.3,4.4,5.5,6.6,7.7,8.8,9.9};
         double[] testCorrect = {5.5};
@@ -28,7 +28,7 @@ public class Main {
         }
 
         printArray(ntest.predict(testData));
-
+        ntest.saveTo("MyNetwork.nns");
     }
 }
 

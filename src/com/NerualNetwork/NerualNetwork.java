@@ -1,5 +1,8 @@
 package com.NerualNetwork;
 
+import java.io.File;
+import java.io.FileWriter;
+
 /**
  * Malformatted Data Exception:
  *  Is thrown when the data being fed to the network does not match
@@ -244,9 +247,72 @@ class NeuralNetwork {
         }
     }
 
+    /**
+     * Create new save file at the given path
+     * @param path filepath in which to save
+     * @see NeuralNetwork#getConfigForSave() for format
+     * @see NeuralNetwork#getNodeDataForSave() for format
+     */
     void saveTo(String path){
+        try {
+            File output = new File(path);
+            FileWriter fw = new FileWriter(output);
+            String toWrite = getConfigForSave()+getNodeDataForSave();
+            fw.write(toWrite);
+            fw.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
+    /**
+     * Get the configuration metadata
+     * @return a string version of the parameter middleLayerConfig for the the constructor
+     */
+    String getConfigForSave(){
 
+        String out = "CONFIG:"+inputLayer.length + "," + outputLayer.length;
+        for(Node[] ns : middleLayers){
+            out += ","+ns.length;
+        }
+        System.out.println(out);
+        return out;
+
+    }
+
+    /**
+     * Get the node data for the network as a string
+     * @return formatted node data
+     */
+    String getNodeDataForSave(){
+        String out = "\n";
+        for(Node[] ns : middleLayers){
+
+            for(Node n : ns){
+                for(double d : n.getWeights()){
+                    out+=","+d;
+                }
+                out+=";";
+            }
+        }
+        for(Node n : outputLayer){
+            for(double d : n.getWeights()){
+                out+=","+d;
+            }
+            out+=";";
+        }
+        return out;
+    }
+
+    /**
+     * Load the neural network from a file
+     * @param f File object with correctly formatted data in it
+     * @exception MalformattedDataException is thrown when the data in the file is incorrectly formatted
+     * @see NeuralNetwork#saveTo(String path) for formatting
+     */
+    NeuralNetwork(File f){
+
+        
 
     }
 

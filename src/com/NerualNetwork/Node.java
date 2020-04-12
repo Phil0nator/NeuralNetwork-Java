@@ -220,4 +220,11 @@ public class Node {
 
     }
 
+    /**
+     * Accessor for weights
+     * @return the node's weights
+     */
+    double[] getWeights(){
+        return weights;
+    }
 }
