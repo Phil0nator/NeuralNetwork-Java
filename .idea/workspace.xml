@@ -19,30 +19,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/NerualNetwork/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="20" column="17" lean-forward="true" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
+            <state relative-caret-position="195">
+              <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/NerualNetwork/NerualNetwork.java">
+        <entry file="file://$PROJECT_DIR$/src/com/NerualNetwork/NeuralNetwork.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
+            <state relative-caret-position="135">
+              <caret line="116" column="12" selection-start-line="116" selection-start-column="12" selection-end-line="116" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="class#MalformattedDataException#0" />
                 <element signature="class#UnfilledTrainDataException#0" />
                 <element signature="method#NeuralNetwork#0;class#NeuralNetwork#0" />
                 <element signature="method#feedData#0;class#NeuralNetwork#0" />
+                <element signature="method#getUnformattedOutput#0;class#NeuralNetwork#0" />
                 <element signature="method#runLoadedData#0;class#NeuralNetwork#0" />
                 <element signature="method#feedCorrect#0;class#NeuralNetwork#0" />
                 <element signature="method#findErrors#0;class#NeuralNetwork#0" />
-                <element signature="method#applyErrors#0;class#NeuralNetwork#0" />
                 <element signature="method#predict#0;class#NeuralNetwork#0" />
                 <element signature="method#train#0;class#NeuralNetwork#0" />
                 <element signature="method#saveTo#0;class#NeuralNetwork#0" />
@@ -54,19 +54,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/NerualNetwork/NeuralNetworkDataFormatter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/NerualNetwork/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="134" column="36" selection-start-line="134" selection-start-column="36" selection-end-line="134" selection-end-column="36" />
+            <state relative-caret-position="423">
+              <caret line="207" column="20" lean-forward="true" selection-start-line="207" selection-start-column="20" selection-end-line="207" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#Node#0;class#Node#0" />
@@ -75,10 +66,10 @@
                 <element signature="method#Node#1;class#Node#0" />
                 <element signature="method#setValue#0;class#Node#0" />
                 <element signature="method#getWeightedValue#0;class#Node#0" />
-                <element signature="e#5011#5012#0" expanded="true" />
-                <element signature="e#5068#5069#0" expanded="true" />
-                <element signature="e#5696#5697#0" expanded="true" />
-                <element signature="e#5726#5727#0" expanded="true" />
+                <element signature="e#5049#5050#0" expanded="true" />
+                <element signature="e#5127#5128#0" expanded="true" />
+                <element signature="e#6069#6070#0" expanded="true" />
+                <element signature="e#6099#6100#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -102,9 +93,10 @@
         <option value="$PROJECT_DIR$/src/com/NerualNetwork/NueralNetworkTrainData.java" />
         <option value="$PROJECT_DIR$/src/com/NerualNetwork/NeuralNetworkTrainData.java" />
         <option value="$PROJECT_DIR$/src/com/NerualNetwork/NeuralNetworkDataFormatter.java" />
-        <option value="$PROJECT_DIR$/src/com/NerualNetwork/Node.java" />
-        <option value="$PROJECT_DIR$/src/com/NerualNetwork/Main.java" />
         <option value="$PROJECT_DIR$/src/com/NerualNetwork/NerualNetwork.java" />
+        <option value="$PROJECT_DIR$/src/com/NerualNetwork/NeuralNetwork.java" />
+        <option value="$PROJECT_DIR$/src/com/NerualNetwork/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/NerualNetwork/Node.java" />
       </list>
     </option>
   </component>
@@ -142,14 +134,14 @@
               <item name="NeuralNetwork-Java" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="NerualNetwork" type="462c0819:PsiDirectoryNode" />
-              <item name="NerualNetwork.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+              <item name="NeuralNetwork.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -203,7 +195,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2553305" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -212,7 +204,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.35536295" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.23943663" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -285,20 +277,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/NerualNetwork/NerualNetwork.java">
+    <entry file="file://$PROJECT_DIR$/src/com/NerualNetwork/NeuralNetworkDataFormatter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/NerualNetwork/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="207" column="20" lean-forward="true" selection-start-line="207" selection-start-column="20" selection-end-line="207" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Node#0;class#Node#0" />
+            <element signature="method#getInitialArrayFor#0;class#Node#0" />
+            <element signature="method#print#0;class#Node#0" />
+            <element signature="method#Node#1;class#Node#0" />
+            <element signature="method#setValue#0;class#Node#0" />
+            <element signature="method#getWeightedValue#0;class#Node#0" />
+            <element signature="e#5049#5050#0" expanded="true" />
+            <element signature="e#5127#5128#0" expanded="true" />
+            <element signature="e#6069#6070#0" expanded="true" />
+            <element signature="e#6099#6100#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/NerualNetwork/NeuralNetwork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="116" column="12" selection-start-line="116" selection-start-column="12" selection-end-line="116" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="class#MalformattedDataException#0" />
             <element signature="class#UnfilledTrainDataException#0" />
             <element signature="method#NeuralNetwork#0;class#NeuralNetwork#0" />
             <element signature="method#feedData#0;class#NeuralNetwork#0" />
+            <element signature="method#getUnformattedOutput#0;class#NeuralNetwork#0" />
             <element signature="method#runLoadedData#0;class#NeuralNetwork#0" />
             <element signature="method#feedCorrect#0;class#NeuralNetwork#0" />
             <element signature="method#findErrors#0;class#NeuralNetwork#0" />
-            <element signature="method#applyErrors#0;class#NeuralNetwork#0" />
             <element signature="method#predict#0;class#NeuralNetwork#0" />
             <element signature="method#train#0;class#NeuralNetwork#0" />
             <element signature="method#saveTo#0;class#NeuralNetwork#0" />
@@ -310,35 +329,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/NerualNetwork/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="20" column="17" lean-forward="true" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/NerualNetwork/NeuralNetworkDataFormatter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/NerualNetwork/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="134" column="36" selection-start-line="134" selection-start-column="36" selection-end-line="134" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Node#0;class#Node#0" />
-            <element signature="method#getInitialArrayFor#0;class#Node#0" />
-            <element signature="method#print#0;class#Node#0" />
-            <element signature="method#Node#1;class#Node#0" />
-            <element signature="method#setValue#0;class#Node#0" />
-            <element signature="method#getWeightedValue#0;class#Node#0" />
-            <element signature="e#5011#5012#0" expanded="true" />
-            <element signature="e#5068#5069#0" expanded="true" />
-            <element signature="e#5696#5697#0" expanded="true" />
-            <element signature="e#5726#5727#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="195">
+          <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
         </state>
       </provider>
     </entry>

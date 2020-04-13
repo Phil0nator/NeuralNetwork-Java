@@ -26,7 +26,7 @@ public class Node {
     /**
      * Constant to determine the number of decimals to be randomized in the initial weight values
      */
-    static private final double WEIGHT_SIG_FIG = 10000;
+    static private final double WEIGHT_SIG_FIG = 100000000;
 
 
     /**
@@ -91,6 +91,7 @@ public class Node {
         double[] out = new double[len];
         for(int i = 0 ; i < len;i++){
             out[i] = ((double)r.nextInt((int)MAX_WEIGHT_DIFF*(int)WEIGHT_SIG_FIG)/WEIGHT_SIG_FIG)-(MAX_WEIGHT_DIFF/2.0);
+            //out[i] = 1;
         }
         return out;
     }
@@ -161,7 +162,6 @@ public class Node {
      * @return the weighted value of this node
      */
     double getWeightedValue(double weight){
-
         return value*weight;
 
     }
@@ -176,7 +176,6 @@ public class Node {
         value = 0.0;
         for(int i = 0 ; i < parents.length;i++){
             try {
-
                 value += parents[i].getWeightedValue(weights[i]);
             }catch(Exception e){
                 e.printStackTrace();
@@ -189,7 +188,7 @@ public class Node {
         if(!isHidden) {
             value = sig(value);
         }
-
+        //print();
         return true;
     }
 
@@ -208,8 +207,10 @@ public class Node {
 
         error = 0.0;
         for(int i = 0 ;i < parents.length;i++){
-
-            error+= (parents[i].error * weights[i]) * (value);
+            //double correct = parents[i].getWeightedValue(weights[i]);
+            //System.out.println(error);
+            error += (parents[i].error * weights[i]) * (value);
+            //error += (correct - value) * (correct - value);
 
         }
 
@@ -223,7 +224,7 @@ public class Node {
         //print();
         for(int i = 0 ;i < weights.length;i++) {
             //System.out.println("PRE: WEIGHT: "+weights[i]);
-            weights[i] += parent.LEARNING_RATE * parents[i].error * parents[i].value * value * (1-value);
+            weights[i] += parent.LEARNING_RATE * parents[i].error;// * parents[i].value * value * (1-value);
             //System.out.println("POST: WEIGHT: "+weights[i]);
 
         }

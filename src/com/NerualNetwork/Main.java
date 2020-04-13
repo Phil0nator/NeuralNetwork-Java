@@ -24,13 +24,14 @@ public class Main {
         double[] c3 = {1};
         double[] c4 = {0};
 
-        double[] testData = {0,1,1};
+        double[] testData = {1,1,1};
         NeuralNetworkTrainData data = new NeuralNetworkTrainData(4);
         data.push(t1,c1);
         data.push(t2,c2);
         data.push(t3,c3);
         data.push(t4,c4);
-        for(int i = 0 ; i < 10000;i++){
+        for(int i = 0 ; i < 100000;i++){
+            //System.out.println("TRAIN: ");
             test.train(data);
         }
         printArray(test.predict(testData));
